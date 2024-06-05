@@ -1,60 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sample_flutter/configs/color/color.dart';
 
 import 'themes.dart';
 
 ThemeData lightTheme = ThemeData.light().copyWith(
   appBarTheme: const AppBarTheme(
-    systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarBrightness: Brightness.light,
-    ),
-    actionsIconTheme: IconThemeData(
-      color: AppColors.black,
+      systemOverlayStyle:
+          SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      )),
+  colorScheme: ThemeData.light().colorScheme.copyWith(
+      secondary: const Color(0xffa1a1a1),
+      primary: const Color(0xff0F0425),
+      onPrimary: const Color(0xff9694B8),
+      outline: const Color(0xfff0f0f0),
+      onSurface: const Color(0xfff6f8f8),
+      surface: const Color(0xffDCE8E8),
+      primaryContainer: Colors.white,
+      onPrimaryContainer: const Color(0xffd8d8da)),
+  textSelectionTheme: const TextSelectionThemeData(cursorColor: Colors.black),
+  scaffoldBackgroundColor: Colors.white,
+  progressIndicatorTheme: const ProgressIndicatorThemeData(
+      linearTrackColor: Color(0xffECEAEA), color: ThemeConfig.textColorWhite),
+  primaryColor: ThemeConfig.textColorWhite,
+  radioTheme: RadioThemeData(
+    fillColor: WidgetStateColor.resolveWith(
+      (states) => Colors.black.withOpacity(.4),
     ),
   ),
-  textSelectionTheme:
-      const TextSelectionThemeData(cursorColor: AppColors.black),
-  textTheme: ThemeData.dark().textTheme.copyWith(
-        titleMedium: GoogleFonts.roboto(color: AppColors.black),
+  textTheme: ThemeData.light().textTheme.copyWith(
+        titleMedium: GoogleFonts.roboto(color: Colors.black),
         titleSmall: GoogleFonts.roboto(
-          color: AppColors.black.withOpacity(.5),
+          color: Colors.black.withOpacity(.5),
         ),
         displayLarge: GoogleFonts.roboto(
-          color: AppColors.black,
+          color: Colors.black,
         ),
         displayMedium: GoogleFonts.roboto(
-          color: AppColors.black,
+          color: Colors.black,
           fontWeight: FontWeight.w400,
         ),
-        headlineMedium: GoogleFonts.roboto(color: ThemeConfig.textColorBlack),
+        headlineMedium: GoogleFonts.roboto(
+          color: ThemeConfig.textColorBlack,
+        ),
         displaySmall: GoogleFonts.roboto(
-          color: AppColors.black,
+          color: Colors.black,
           fontWeight: FontWeight.w400,
         ),
         bodyMedium: GoogleFonts.roboto(
           color: ThemeConfig.textColorBlack,
         ),
       ),
-  radioTheme: RadioThemeData(
-    fillColor: WidgetStateColor.resolveWith(
-        (states) => AppColors.black.withOpacity(.4)),
-  ),
-  colorScheme: ThemeData.light().colorScheme.copyWith(
-        secondary: AppColors.lightPurple,
-        primary: AppColors.white,
-        onPrimary: AppColors.lightWhite,
-        outline: AppColors.black,
-        surface: AppColors.lightWhite,
-        onSurface: AppColors.lightWhite,
-        primaryContainer: AppColors.lightWhitePink,
-        onPrimaryContainer: AppColors.lightWhitePurple,
-      ),
-  progressIndicatorTheme: const ProgressIndicatorThemeData(
-    linearTrackColor: AppColors.white,
-    color: AppColors.lightPurple,
-  ),
-  primaryColor: AppColors.lightWhite,
-  scaffoldBackgroundColor: AppColors.white,
 );

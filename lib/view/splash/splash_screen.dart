@@ -22,6 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Center(
         child: Text(
+          textAlign: TextAlign.center,
           'Chào bạn đến với Sample\ncủa Chiến ^_^',
           style: Theme.of(context).textTheme.displayMedium,
         ),

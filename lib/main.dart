@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:sample_flutter/configs/routes/routes.dart';
 import 'package:sample_flutter/configs/routes/routes_name.dart';
 import 'package:sample_flutter/configs/themes/themes.dart';
+
+GetIt getIt = GetIt.instance;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +22,9 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: lightTheme,
       darkTheme: darkTheme,
+      localizationsDelegates: const [
+        //AppLocalizations.delegate,
+      ],
       initialRoute: RoutesName.splash,
       onGenerateRoute: Routes.generateRoute,
     );
