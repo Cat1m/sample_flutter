@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sample_flutter/bloc/login_bloc/login_bloc.dart';
 import 'package:sample_flutter/generated/l10n/app_localizations.dart';
-import 'package:sample_flutter/utils/extensions/validations_exception.dart';
 
-class EmailInput extends StatelessWidget {
+class PasswordInput extends StatelessWidget {
+  const PasswordInput({super.key, required this.focusNode});
+
   final FocusNode focusNode;
-  const EmailInput({
-    super.key,
-    required this.focusNode,
-  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,26 +15,27 @@ class EmailInput extends StatelessWidget {
         return TextFormField(
           focusNode: focusNode,
           decoration: InputDecoration(
-            icon: const Icon(Icons.email),
-            labelText: AppLocalizations.of(context).email,
+            icon: const Icon(Icons.lock),
             helperText: AppLocalizations.of(context)
-                .aCompleteValidEmailExamplejoegmailcom,
+                .passwordShouldbeatleast_characterswithatleastoneletterandnumber,
+            helperMaxLines: 2,
+            labelText: AppLocalizations.of(context).password,
+            errorMaxLines: 2,
           ),
-          keyboardType: TextInputType.emailAddress,
-          onChanged: (value) {
-            context.read<LoginBloc>().add(EmailChanged(email: value));
-          },
+          obscureText: true,
           validator: (value) {
             if (value!.isEmpty) {
-              return 'Enter email';
+              return 'Enter password';
             }
-
-            if (!value.emailValidator()) {
-              return 'Email is not correct';
+            if (value.length < 6) {
+              return 'Please enter password greater than six characters';
             }
             return null;
           },
-          textInputAction: TextInputAction.next,
+          onChanged: (value) {
+            context.read<LoginBloc>().add(PasswordChanged(password: value));
+          },
+          textInputAction: TextInputAction.done,
         );
       },
     );

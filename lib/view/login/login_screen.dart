@@ -48,8 +48,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    EmailInput(
-                      focusNode: _emailFocusNode,
+                    EmailInput(focusNode: _emailFocusNode),
+                    PasswordInput(focusNode: _passwordFocusNode),
+                    SubmitButton(
+                      formKey: _formKey,
                     ),
                   ],
                 ),

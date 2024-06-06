@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:sample_flutter/repository/auth_api/auth_api_repository.dart';
 import 'package:sample_flutter/services/session_manager/session_controller.dart';
 
@@ -32,8 +33,11 @@ class LoginBloc extends Bloc<LoginEvents, LoginStates> {
   ) async {
     Map<String, String> data = {
       'email': state.email,
-      'password:': state.password,
+      'password': state.password,
     };
+    if (kDebugMode) {
+      print(data);
+    }
     emit(state.copyWith(
       postApiStatus: PostApiStatus.loading,
     ));
