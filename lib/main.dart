@@ -3,9 +3,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:sample_flutter/configs/routes/routes.dart';
 import 'package:sample_flutter/configs/routes/routes_name.dart';
-import 'package:sample_flutter/configs/themes/themes.dart';
 import 'package:sample_flutter/generated/l10n/app_localizations.dart';
 import 'package:sample_flutter/repository/auth_api/auth_api_repository.dart';
+import 'package:sample_flutter/repository/movies_api/movies_api_repository.dart';
+import 'package:sample_flutter/repository/movies_api/movies_http_api_repository.dart';
 
 import 'repository/auth_api/auth_http_api_repository.dart';
 
@@ -22,19 +23,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: true,
       title: 'Flutter sample',
       themeMode: ThemeMode.light,
-      theme: lightTheme,
-      darkTheme: darkTheme,
-      localizationsDelegates: const [
+      // theme: lightTheme,
+      // darkTheme: darkTheme,
+      localizationsDelegates: [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [
+      supportedLocales: [
         Locale('en'),
         Locale('vi'),
       ],
@@ -46,6 +47,8 @@ class MyApp extends StatelessWidget {
 
 void servicesLocator() {
   getIt.registerLazySingleton<AuthApiRepository>(() => AuthHttpApiRepository());
+  getIt.registerLazySingleton<MoviesApiRepository>(
+      () => MoviesHttpApiRepository());
 }
 
 //Email: eve.holt@reqres.in
