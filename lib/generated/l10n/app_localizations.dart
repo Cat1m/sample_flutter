@@ -188,6 +188,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hello'**
   String get hello;
+
+  /// No description provided for @author.
+  ///
+  /// In en, this message translates to:
+  /// **'Lê Minh Chiến'**
+  String get author;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -28,11 +28,38 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       title: 'Flutter sample',
       //themeMode: ThemeMode.light,
-      theme: FlexThemeData.light(scheme: FlexScheme.flutterDash),
+      theme: FlexThemeData.light(
+        scheme: FlexScheme.indigo,
+        surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+        blendLevel: 7,
+        subThemesData: const FlexSubThemesData(
+          blendOnLevel: 10,
+          blendOnColors: false,
+          useTextTheme: true,
+          useM2StyleDividerInM3: true,
+          alignedDropdown: true,
+          useInputDecoratorThemeInDialogs: true,
+        ),
+        visualDensity: FlexColorScheme.comfortablePlatformDensity,
+        swapLegacyOnMaterial3: true,
+      ),
       // The Mandy red, dark theme.
-      darkTheme: FlexThemeData.dark(scheme: FlexScheme.deepPurple),
+      darkTheme: FlexThemeData.dark(
+        scheme: FlexScheme.indigoM3,
+        surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+        blendLevel: 13,
+        subThemesData: const FlexSubThemesData(
+          blendOnLevel: 20,
+          useTextTheme: true,
+          useM2StyleDividerInM3: true,
+          alignedDropdown: true,
+          useInputDecoratorThemeInDialogs: true,
+        ),
+        visualDensity: FlexColorScheme.comfortablePlatformDensity,
+        swapLegacyOnMaterial3: true,
+      ),
       // Use dark or light theme based on system setting.
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       // darkTheme: darkTheme,
       localizationsDelegates: const [
         AppLocalizations.delegate,

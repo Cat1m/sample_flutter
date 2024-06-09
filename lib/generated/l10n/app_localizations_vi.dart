@@ -51,4 +51,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get hello => 'Xin chào';
+
+  @override
+  String get author => 'Lê Minh Chiến';
 }
